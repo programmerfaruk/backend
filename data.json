@@ -1,0 +1,119 @@
+{
+    "technology_and_electronics_products": [
+      {
+        "id": 1,
+        "name": "iPhone 13",
+        "description": "The latest iPhone with a stunning Super Retina XDR display and A15 Bionic chip.",
+        "price": 799.99,
+        "brand": "Apple",
+        "category": "Smartphones",
+        "in_stock": true,
+        "img": "iphone13.jpg",
+        "type": "Phone",
+        "Rating": 4.8,
+        "features": [
+          "6.1-inch Super Retina XDR Display",
+          "A15 Bionic Chip",
+          "Dual Camera System",
+          "Face ID",
+          "5G Support"
+        ]
+      },
+      {
+        "id": 2,
+        "name": "MacBook Air",
+        "description": "The ultra-thin and lightweight laptop with Apple's M1 chip for incredible performance.",
+        "price": 999.99,
+        "brand": "Apple",
+        "category": "Laptops",
+        "in_stock": true,
+        "img": "macbook_air.jpg",
+        "type": "Computer",
+        "Rating": 4.9,
+        "features": [
+          "13.3-inch Retina Display",
+          "Apple M1 Chip",
+          "8GB RAM",
+          "256GB SSD",
+          "Magic Keyboard"
+        },
+        // Add more Apple products below
+      },
+      {
+        "id": 3,
+        "name": "iPad Pro",
+        "description": "The powerful iPad Pro with a Liquid Retina XDR display and Apple Pencil support.",
+        "price": 799.99,
+        "brand": "Apple",
+        "category": "Tablets",
+        "in_stock": true,
+        "img": "ipad_pro.jpg",
+        "type": "Tablet",
+        "Rating": 4.7,
+        "features": [
+          "11-inch Liquid Retina XDR Display",
+          "Apple A14X Chip",
+          "Face ID",
+          "Apple Pencil Support",
+          "5G Support"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Apple Watch Series 7",
+        "description": "The latest Apple Watch with a larger display, health tracking, and ECG capabilities.",
+        "price": 399.99,
+        "brand": "Apple",
+        "category": "Wearables",
+        "in_stock": true,
+        "img": "apple_watch_series7.jpg",
+        "type": "Smartwatch",
+        "Rating": 4.6,
+        "features": [
+          "Always-On Retina Display",
+          "ECG and Blood Oxygen Monitoring",
+          "Fitness and Health Tracking",
+          "Water-Resistant"
+        }
+      },
+      {
+        "id": 5,
+        "name": "AirPods Pro",
+        "description": "Premium wireless earbuds with active noise cancellation and transparency mode.",
+        "price": 199.99,
+        "brand": "Apple",
+        "category": "Audio",
+        "in_stock": true,
+        "img": "airpods_pro.jpg",
+        "type": "Headphones",
+        "Rating": 4.8,
+        "features": [
+          "Active Noise Cancellation",
+          "Transparency Mode",
+          "Sweat and Water-Resistant",
+          "Hey Siri Support"
+        }
+      },
+      {
+        "id": 6,
+        "name": "iMac",
+        "description": "The all-new iMac with a vibrant 4.5K Retina display and M1 chip for desktop performance.",
+        "price": 1499.99,
+        "brand": "Apple",
+        "category": "Desktops",
+        "in_stock": true,
+        "img": "imac.jpg",
+        "type": "Computer",
+        "Rating": 4.9,
+        "features": [
+          "24-inch 4.5K Retina Display",
+          "Apple M1 Chip",
+          "8GB RAM",
+          "256GB SSD",
+          "Magic Keyboard and Mouse"
+        }
+      }
+      // You can continue adding more Apple products here
+    ]
+  }
+  
