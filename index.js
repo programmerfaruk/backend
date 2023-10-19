@@ -2,11 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5001;
 
 //middleware
 app.use(cors());
-app.use(express.json);
+app.use(express.json());
 
 
 const uri = "mongodb+srv://amin11588:9bGck87pnSlrGcYZ@cluster0.zyvfoih.mongodb.net/?retryWrites=true&w=majority";
@@ -32,7 +32,15 @@ async function run() {
    
     app.get("/categorys", async (req, res) => {
       const result = await ecommerceCategory.find().toArray();
-      console.log(result);
+      // console.log(result);
+      res.send(result);
+    });
+    
+    app.get("/categorys/categories/categoriesDetails/:id", async (req, res) => {
+      const id = req.params.id;
+      console.log(id);
+      const result = await ecommerceCategory.find().toArray();
+      // console.log(result);
       res.send(result);
     });
 
