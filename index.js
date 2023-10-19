@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const port = process.env.PORT || 5001;
 
 //middleware
@@ -36,10 +36,13 @@ async function run() {
       res.send(result);
     });
     
-    app.get("/categorys/categories/categoriesDetails/:id", async (req, res) => {
+    app.get("/categories/categoriesDetails/:id", async (req, res) => {
       const id = req.params.id;
+      const query = {
+        _id : new ObjectId(id)
+      }
       console.log(id);
-      const result = await ecommerceCategory.find().toArray();
+      const result = await ecommerceCategory.findOne(query);
       // console.log(result);
       res.send(result);
     });
