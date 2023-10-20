@@ -29,6 +29,14 @@ async function run() {
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
     const ecommerceCategory = client.db("ecommerce").collection("category");
+    const commerceCollection = client.db("commerceCollectionDB").collection("allproduct");
+
+    app.post("/product", async(res, req)=>{
+      const newProduct = res.body;
+      console.log(newProduct);
+      const result = await commerceCollection.insertOne(newProduct);
+      res.send(result)
+    })
    
     app.get("/categorys", async (req, res) => {
       const result = await ecommerceCategory.find().toArray();
@@ -46,6 +54,8 @@ async function run() {
       // console.log(result);
       res.send(result);
     });
+    
+    
 
   } finally {
     // Ensures that the client will close when you finish/error
