@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+require('dotenv').config()
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const port = process.env.PORT || 5001;
 
@@ -9,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 
-const uri = "mongodb+srv://amin11588:9bGck87pnSlrGcYZ@cluster0.zyvfoih.mongodb.net/?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${process.env.DB_UserName}:${process.env.DB_PassWord}@cluster0.zyvfoih.mongodb.net/?retryWrites=true&w=majority`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -28,7 +29,7 @@ async function run() {
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
-    const ecommerceCategory = client.db("ecommerce").collection("category");
+    // const ecommerceCategory = client.db("ecommerce").collection("category");
     const commerceCollection = client.db("commerceCollectionDB").collection("allproduct");
 
     app.post("/product", async (req, res) => {
@@ -81,24 +82,24 @@ async function run() {
       res.send(result)
     })
 
-    app.get("/categorys", async (req, res) => {
-      const result = await ecommerceCategory.find().toArray();
-      // console.log(result);
-      res.send(result);
-    });
+    // app.get("/categorys", async (req, res) => {
+    //   const result = await ecommerceCategory.find().toArray();
+    //   // console.log(result);
+    //   res.send(result);
+    // });
 
 
 
-    app.get("/categories/categoriesDetails/:id", async (req, res) => {
-      const id = req.params.id;
-      const query = {
-        _id: new ObjectId(id)
-      }
-      console.log(id);
-      const result = await ecommerceCategory.findOne(query);
-      // console.log(result);
-      res.send(result);
-    });
+    // app.get("/categories/categoriesDetails/:id", async (req, res) => {
+    //   const id = req.params.id;
+    //   const query = {
+    //     _id: new ObjectId(id)
+    //   }
+    //   console.log(id);
+    //   const result = await ecommerceCategory.findOne(query);
+    //   // console.log(result);
+    //   res.send(result);
+    // });
 
 
 
