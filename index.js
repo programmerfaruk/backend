@@ -31,31 +31,47 @@ async function run() {
     const ecommerceCategory = client.db("ecommerce").collection("category");
     const commerceCollection = client.db("commerceCollectionDB").collection("allproduct");
 
-    app.post("/product", async(res, req)=>{
+    app.post("/product", async (res, req) => {
       const newProduct = res.body;
-      console.log(newProduct);
+      // console.log(newProduct);
       const result = await commerceCollection.insertOne(newProduct);
       res.send(result)
     })
-   
+
+    app.get("/product", async (req, res) => {
+      const result = await commerceCollection.find().toArray()
+      res.send(result)
+    })
+
+    app.get("/product/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = {
+        _id: new ObjectId(id)
+      }
+      const result = await commerceCollection.findOne(query);
+      res.send(result);
+    })
+
     app.get("/categorys", async (req, res) => {
       const result = await ecommerceCategory.find().toArray();
       // console.log(result);
       res.send(result);
     });
-    
+
+
+
     app.get("/categories/categoriesDetails/:id", async (req, res) => {
       const id = req.params.id;
       const query = {
-        _id : new ObjectId(id)
+        _id: new ObjectId(id)
       }
       console.log(id);
       const result = await ecommerceCategory.findOne(query);
       // console.log(result);
       res.send(result);
     });
-    
-    
+
+
 
   } finally {
     // Ensures that the client will close when you finish/error
@@ -65,10 +81,10 @@ async function run() {
 run().catch(console.dir);
 
 
-app.get("/", (req, res)=>{
-    res.send("Hello From Server")
+app.get("/", (req, res) => {
+  res.send("Hello From Server")
 });
 
-app.listen(port, ()=>{
-    console.log(`server is running port ${port}`);
+app.listen(port, () => {
+  console.log(`server is running port ${port}`);
 })
