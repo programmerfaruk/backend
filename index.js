@@ -52,6 +52,32 @@ async function run() {
       res.send(result);
     })
 
+    app.put("/product/:id", async(req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) }
+      const option ={upsert : true}
+      const updateProduct = req.body;
+      const update ={
+        $set:{
+          photo: updateProduct.photo,
+          product: updateProduct.product,
+          price: updateProduct.price,
+          short: updateProduct.short,
+          rating: updateProduct.rating,
+          brand: updateProduct.brand,
+        }
+      }
+    })
+
+    app.delete("/product/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = {
+        _id: new ObjectId(id)
+      }
+      const result = await commerceCollection.deleteOne(query)
+      res.send(result)
+    })
+
     app.get("/categorys", async (req, res) => {
       const result = await ecommerceCategory.find().toArray();
       // console.log(result);
