@@ -31,8 +31,8 @@ async function run() {
     const ecommerceCategory = client.db("ecommerce").collection("category");
     const commerceCollection = client.db("commerceCollectionDB").collection("allproduct");
 
-    app.post("/product", async (res, req) => {
-      const newProduct = res.body;
+    app.post("/product", async (req, res) => {
+      const newProduct = req.body;
       // console.log(newProduct);
       const result = await commerceCollection.insertOne(newProduct);
       res.send(result)
@@ -67,6 +67,9 @@ async function run() {
           brand: updateProduct.brand,
         }
       }
+      console.log(update);
+      const result = await commerceCollection.updateOne(filter, update, option)
+      res.send(result)
     })
 
     app.delete("/product/:id", async (req, res) => {
